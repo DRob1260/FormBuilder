@@ -9,8 +9,7 @@ function FormBuilderHeader() {
         <div className={'FormBuilderHeader'}>
             <Container fluid>
                 <Row>
-                    <Col xs={12} lg={3} />
-                    <Col>
+                    <Col xs={12} lg={3}>
                         <Navbar.Brand>
                             <h3><FontAwesomeIcon icon={faPenSquare} /> Form Builder</h3>
                         </Navbar.Brand>

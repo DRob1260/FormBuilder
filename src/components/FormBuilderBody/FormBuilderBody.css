@@ -5,3 +5,11 @@
 #componentPickerCol {
     background-color: rgb(52,58,64);
 }
+
+.ComponentPicker {
+    margin-top: 2em;
+}
+
+#formPreviewContainer {
+    margin-top: 1.5em;
+}
