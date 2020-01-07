@@ -17,7 +17,7 @@ function FormBuilderBody() {
                             <Row className="justify-content-md-center">
                                 <Col xs={10}>
                                     <Form>
-                                        <FirstLastName firstNameRequired={true} lastNameRequired={true} name={'client'} label={'Client Name'}/>
+                                        <FirstLastName firstNameRequired={true} lastNameRequired={true} firstNameValidation={true} lastNameValidation={true} name={'client'} label={'Client Name'}/>
                                         <Button id={"submit"} block type={'submit'}>Submit</Button>
                                     </Form>
                                 </Col>

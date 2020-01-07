@@ -19,12 +19,14 @@ function FirstLastName({ label, name, firstNameValidation, lastNameValidation, f
     const handleFirstNameChange = (event) => {
         const firstName = event.target.value;
         const isValid = firstNameValidation ? nameIsValid(firstName) : true;
+        console.log('first name ' + firstName + ' is ' + isValid);
         setFirstName({firstName: firstName, isValid: isValid});
     };
 
     const handleLastNameChange = (event) => {
         const lastName = event.target.value;
         const isValid = lastNameValidation ? nameIsValid(lastName) : true;
+        console.log('last name ' + lastName + ' is ' + isValid);
         setLastName({lastName: lastName, isValid: isValid})
     };
 
@@ -37,8 +39,9 @@ function FirstLastName({ label, name, firstNameValidation, lastNameValidation, f
     };
 
     const nameIsValid = (name) => {
-        let regex = RegExp(`^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$`);
-        return regex.test(name);
+        let regex = RegExp(`^[a-zA-Z]+(([',.-][a-zA-Z ])?[a-zA-Z]*)*$`);
+        console.log(name + ' is ' + name.length + ' long')
+        return regex.test(name) && name.length > 0;
     };
 
     return (
@@ -54,8 +57,8 @@ function FirstLastName({ label, name, firstNameValidation, lastNameValidation, f
                         required={firstNameRequired}
                         onChange={handleFirstNameChange}
                         onBlur={handleFirstNameBlur}
-                        isValid={firstName.isValid}
-                        isInvalid={touched && !firstName.isValid}
+                        isValid={firstNameValidation ? firstName.isValid : undefined}
+                        isInvalid={firstNameValidation ? (touched && !firstName.isValid) : undefined}
                     />
                 </Col>
                 <Col xs={12} sm={6}>
@@ -67,8 +70,8 @@ function FirstLastName({ label, name, firstNameValidation, lastNameValidation, f
                         required={lastNameRequired}
                         onChange={handleLastNameChange}
                         onBlur={handleLastNameBlur}
-                        isValid={lastName.isValid}
-                        isInvalid={touched && !lastName.isValid}
+                        isValid={lastNameValidation ? lastName.isValid : undefined}
+                        isInvalid={lastNameValidation ? (touched && !lastName.isValid) : undefined}
                     />
                 </Col>
                 <Form.Control.Feedback type={'invalid'}>Please enter a valid name.</Form.Control.Feedback>
