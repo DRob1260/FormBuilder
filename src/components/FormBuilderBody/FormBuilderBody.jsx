@@ -1,19 +1,18 @@
 import React from 'react';
-import './FormBuilderBody.css';
-import {Container, Row, Col, Form, Button} from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { ComponentPicker } from "../ComponentPicker/ComponentPicker";
 import { FirstLastName } from "../FirstLastName/FirstLastName";
 
 function FormBuilderBody() {
     return (
-        <div className={'FormBuilderBody'} style={{minHeight: '100vh'}}>
-            <Container fluid style={{minHeight: '100vh'}}>
+        <div className={'FormBuilderBody'} >
+            <Container fluid >
                 <Row>
-                    <Col id='componentPickerCol' xs={12} lg={3} style={{backgroundColor: 'rgb(52,58,64)'}}>
-                        <ComponentPicker style={{marginTop: '2em'}}/>
+                    <Col className='componentPickerCol' xs={12} lg={3} style={{backgroundColor: 'rgb(52,58,64)', minHeight: '100vh'}}>
+                        <ComponentPicker />
                     </Col>
                     <Col>
-                        <Container id={'formPreviewContainer'} style={{maginTop: '1.5em'}}>
+                        <Container id={'formPreviewContainer'} style={{marginTop: '1.5em'}}>
                             <Row className="justify-content-md-center">
                                 <Col xs={10}>
                                     <Form>
