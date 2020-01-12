@@ -47,12 +47,9 @@ function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidat
     };
 
     return (
-        <div className={'FirstLastName'}>
+        <div className={'FirstLastName'} style={{textAlign: 'left'}}>
             <Form.Label>{label}</Form.Label>
             <Form.Row>
-                <Form.Group>
-
-                </Form.Group>
                 <Form.Group as={Col} xs={12} sm={6}>
                     <Form.Control
                         id={`${namePrefix}-first`}
