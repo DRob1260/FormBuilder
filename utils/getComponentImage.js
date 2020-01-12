@@ -2,7 +2,6 @@ import connect from "connect";
 import finalhandler from "finalhandler";
 import http from "http";
 import puppeteer from "puppeteer";
-import { AddressInfo } from "net";
 
 const createServer = async (html) => {
     const app = connect();
@@ -42,11 +41,6 @@ const takeScreenshot = async (url) => {
 };
 
 const generateImage = async () => {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css';
-    document.getElementsByTagName('HEAD')[0].appendChild(link);
     const html = document.documentElement.outerHTML;
     const server = await createServer(html);
     const address = server.address();
