@@ -55,7 +55,9 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
-      "!<rootDir>/node_modules/"
+      "!<rootDir>/node_modules/",
+      "!**/index.js",
+      "!**/coverage/**"
     ],
     "coverageThreshold": {
       "global": {
