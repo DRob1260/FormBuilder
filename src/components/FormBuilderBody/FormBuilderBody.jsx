@@ -6,19 +6,19 @@ import { FirstLastName } from "../FirstLastName/FirstLastName";
 
 function FormBuilderBody() {
     return (
-        <div className={'FormBuilderBody'}>
-            <Container fluid>
+        <div className={'FormBuilderBody'} style={{minHeight: '100vh'}}>
+            <Container fluid style={{minHeight: '100vh'}}>
                 <Row>
-                    <Col id='componentPickerCol' xs={12} lg={3}>
-                        <ComponentPicker />
+                    <Col id='componentPickerCol' xs={12} lg={3} style={{backgroundColor: 'rgb(52,58,64)'}}>
+                        <ComponentPicker style={{marginTop: '2em'}}/>
                     </Col>
                     <Col>
-                        <Container id={'formPreviewContainer'}>
+                        <Container id={'formPreviewContainer'} style={{maginTop: '1.5em'}}>
                             <Row className="justify-content-md-center">
                                 <Col xs={10}>
                                     <Form>
                                         <FirstLastName firstNameRequired={true} lastNameRequired={true} firstNameValidation={true} lastNameValidation={true} name={'client'} label={'Client Name'}/>
-                                        <Button id={"submit"} block type={'submit'}>Submit</Button>
+                                        <Button id={"submit"} block type={'submit'} style={{marginTop: '10em'}}>Submit</Button>
                                     </Form>
                                 </Col>
                             </Row>
