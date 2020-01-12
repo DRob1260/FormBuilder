@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Col, Form} from 'react-bootstrap';
 
-function FirstLastName({ label, name, firstNameValidation, lastNameValidation, firstNameRequired, lastNameRequired }) {
+function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidation, firstNameRequired, lastNameRequired }) {
 
     const emptyFirstName = {
         firstName: '',
@@ -14,7 +14,9 @@ function FirstLastName({ label, name, firstNameValidation, lastNameValidation, f
 
     const [firstName, setFirstName] = useState(emptyFirstName);
     const [lastName, setLastName] = useState(emptyLastName);
-    const [touched, setTouched] = useState(false);
+    const [firstNameTouched, setFirstNameTouched] = useState(false);
+    const [lastNameTouched, setLastNameTouched] = useState(false);
+
 
     const handleFirstNameChange = (event) => {
         const firstName = event.target.value;
@@ -31,11 +33,11 @@ function FirstLastName({ label, name, firstNameValidation, lastNameValidation, f
     };
 
     const handleFirstNameBlur = () => {
-        setTouched(true);
+        setFirstNameTouched(true);
     };
 
     const handleLastNameBlur = () => {
-        setTouched(true);
+        setLastNameTouched(true);
     };
 
     const nameIsValid = (name) => {
@@ -48,33 +50,39 @@ function FirstLastName({ label, name, firstNameValidation, lastNameValidation, f
         <div className={'FirstLastName'}>
             <Form.Label>{label}</Form.Label>
             <Form.Row>
-                <Col xs={12} sm={6}>
+                <Form.Group>
+
+                </Form.Group>
+                <Form.Group as={Col} xs={12} sm={6}>
                     <Form.Control
+                        id={`${namePrefix}-first`}
+                        name={`${namePrefix}-first`}
                         type={'name'}
-                        name={`${name}-firstName`}
                         placeholder={'First Name'}
                         value={firstName.firstName}
                         required={firstNameRequired}
                         onChange={handleFirstNameChange}
                         onBlur={handleFirstNameBlur}
                         isValid={firstNameValidation ? firstName.isValid : undefined}
-                        isInvalid={firstNameValidation ? (touched && !firstName.isValid) : undefined}
+                        isInvalid={firstNameValidation ? (firstNameTouched && !firstName.isValid) : undefined}
                     />
-                </Col>
-                <Col xs={12} sm={6}>
+                    <Form.Control.Feedback id={`${namePrefix}-first-feedback`} type={'invalid'}>Please enter a valid first name.</Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} xs={12} sm={6}>
                     <Form.Control
+                        id={`${namePrefix}-last`}
+                        name={`${namePrefix}-last`}
                         type={'name'}
-                        name={`${name}-lastName`}
                         placeholder={'Last Name'}
                         value={lastName.lastName}
                         required={lastNameRequired}
                         onChange={handleLastNameChange}
                         onBlur={handleLastNameBlur}
                         isValid={lastNameValidation ? lastName.isValid : undefined}
-                        isInvalid={lastNameValidation ? (touched && !lastName.isValid) : undefined}
+                        isInvalid={lastNameValidation ? (lastNameTouched && !lastName.isValid) : undefined}
                     />
-                </Col>
-                <Form.Control.Feedback type={'invalid'}>Please enter a valid name.</Form.Control.Feedback>
+                    <Form.Control.Feedback id={`${namePrefix}-last-feedbackd`} type={'invalid'}>Please enter a valid last name.</Form.Control.Feedback>
+                </Form.Group>
             </Form.Row>
         </div>
     );
@@ -82,7 +90,7 @@ function FirstLastName({ label, name, firstNameValidation, lastNameValidation, f
 
 FirstLastName.defaultProps = {
     label: 'Name',
-    name: 'name',
+    namePrefix: 'name',
     firstNameValidation: false,
     lastNameValidation: false,
     firstNameRequired: false,
