@@ -3,47 +3,35 @@ import {Col, Form} from 'react-bootstrap';
 
 function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidation, firstNameRequired, lastNameRequired, firstNameDefaultValue, lastNameDefaultValue }) {
 
+    const nameIsValid = (name) => {
+        let regex = RegExp(`^[a-zA-Z]+(([',.-][a-zA-Z ])?[a-zA-Z]*)*$`);
+        if(name.length === 0)
+            return undefined;
+        else return regex.test(name);
+    };
+
     const emptyFirstName = {
         firstName: firstNameDefaultValue,
-        isValid: firstNameRequired ? false : true
+        isValid: firstNameRequired ? nameIsValid(firstNameDefaultValue) : true
     };
     const emptyLastName = {
         lastName: lastNameDefaultValue,
-        isValid: lastNameRequired ? false : true
+        isValid: lastNameRequired ? nameIsValid(lastNameDefaultValue) : true
     };
 
     const [firstName, setFirstName] = useState(emptyFirstName);
     const [lastName, setLastName] = useState(emptyLastName);
-    const [firstNameTouched, setFirstNameTouched] = useState(false);
-    const [lastNameTouched, setLastNameTouched] = useState(false);
-
 
     const handleFirstNameChange = (event) => {
         const firstName = event.target.value;
         const isValid = firstNameValidation ? nameIsValid(firstName) : true;
-        console.log('first name ' + firstName + ' is ' + isValid);
         setFirstName({firstName: firstName, isValid: isValid});
     };
 
     const handleLastNameChange = (event) => {
         const lastName = event.target.value;
         const isValid = lastNameValidation ? nameIsValid(lastName) : true;
-        console.log('last name ' + lastName + ' is ' + isValid);
         setLastName({lastName: lastName, isValid: isValid})
-    };
-
-    const handleFirstNameBlur = () => {
-        setFirstNameTouched(true);
-    };
-
-    const handleLastNameBlur = () => {
-        setLastNameTouched(true);
-    };
-
-    const nameIsValid = (name) => {
-        let regex = RegExp(`^[a-zA-Z]+(([',.-][a-zA-Z ])?[a-zA-Z]*)*$`);
-        console.log(name + ' is ' + name.length + ' long')
-        return regex.test(name) && name.length > 0;
     };
 
     return (
@@ -59,9 +47,8 @@ function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidat
                         value={firstName.firstName}
                         required={firstNameRequired}
                         onChange={handleFirstNameChange}
-                        onBlur={handleFirstNameBlur}
                         isValid={firstNameValidation ? firstName.isValid : undefined}
-                        isInvalid={firstNameValidation ? (firstNameTouched && !firstName.isValid) : undefined}
+                        isInvalid={firstNameValidation ? (firstName.isValid === undefined ? undefined : !firstName.isValid) : undefined}
                     />
                     <Form.Control.Feedback id={`${namePrefix}-first-feedback`} type={'invalid'}>Please enter a valid first name.</Form.Control.Feedback>
                 </Form.Group>
@@ -74,9 +61,8 @@ function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidat
                         value={lastName.lastName}
                         required={lastNameRequired}
                         onChange={handleLastNameChange}
-                        onBlur={handleLastNameBlur}
                         isValid={lastNameValidation ? lastName.isValid : undefined}
-                        isInvalid={lastNameValidation ? (lastNameTouched && !lastName.isValid) : undefined}
+                        isInvalid={lastNameValidation ? (lastName.isValid === undefined ? undefined : !lastName.isValid) : undefined}
                     />
                     <Form.Control.Feedback id={`${namePrefix}-last-feedbackd`} type={'invalid'}>Please enter a valid last name.</Form.Control.Feedback>
                 </Form.Group>
@@ -92,8 +78,8 @@ FirstLastName.defaultProps = {
     lastNameValidation: false,
     firstNameRequired: false,
     lastNameRequired: false,
-    firstNameDefaultValue: undefined,
-    lastNameDefaultValue: undefined
+    firstNameDefaultValue: '',
+    lastNameDefaultValue: ''
 };
 
 export { FirstLastName }
