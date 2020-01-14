@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import {Col, Form} from 'react-bootstrap';
 
-function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidation, firstNameRequired, lastNameRequired }) {
+function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidation, firstNameRequired, lastNameRequired, firstNameDefaultValue, lastNameDefaultValue }) {
 
     const emptyFirstName = {
-        firstName: '',
+        firstName: firstNameDefaultValue,
         isValid: firstNameRequired ? false : true
     };
     const emptyLastName = {
-        lastName: '',
+        lastName: lastNameDefaultValue,
         isValid: lastNameRequired ? false : true
     };
 
@@ -91,7 +91,9 @@ FirstLastName.defaultProps = {
     firstNameValidation: false,
     lastNameValidation: false,
     firstNameRequired: false,
-    lastNameRequired: false
+    lastNameRequired: false,
+    firstNameDefaultValue: undefined,
+    lastNameDefaultValue: undefined
 };
 
 export { FirstLastName }
