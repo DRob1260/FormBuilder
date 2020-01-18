@@ -6,20 +6,39 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+    "font-awesome": "^4.7.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "reg-suit": "^0.8.6"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.3.2",
+    "@storybook/addon-links": "^5.3.2",
+    "@storybook/addons": "^5.3.2",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/react": "^5.3.6",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.3",
+    "http": "0.0.0",
+    "react-test-renderer": "^16.12.0",
+    "storycap": "^2.3.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test-with-coverage": "react-scripts test --coverage --watchAll=false",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "storybook-with-storycap": "storycap http://localhost:9009 --serverCmd \"storybook -p 9009\"",
+    "storycap": "storycap http://localhost:9009"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +54,32 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!**/index.js",
+      "!**/coverage/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "plugins": [
+    [
+      "@babel/plugin-transform-modules-commonjs",
+      {
+        "allowTopLevelThis": true
+      }
+    ]
+  ]
 }
