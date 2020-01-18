@@ -8,4 +8,4 @@ describe('FormBuilderBody', () => {
        expect(wrapper).toContainMatchingElement('ComponentPicker');
         expect(wrapper).toContainMatchingElement('Form');
     });
-})
+});
