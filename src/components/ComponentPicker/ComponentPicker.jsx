@@ -14,8 +14,9 @@ function ComponentPicker() {
                                 <InputGroup.Text><FontAwesomeIcon icon={faSearch}/></InputGroup.Text>
                             </InputGroup.Prepend>
                             <FormControl
-                                placeholder="Search"
-                                aria-label="Search"
+                                id={'componentPickerSearch'}
+                                placeholder={"Search"}
+                                aria-label={"Search"}
                             />
                         </InputGroup>
                     </Col>
