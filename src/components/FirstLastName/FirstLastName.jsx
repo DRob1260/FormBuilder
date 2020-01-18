@@ -12,11 +12,11 @@ function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidat
 
     const emptyFirstName = {
         firstName: firstNameDefaultValue,
-        isValid: firstNameRequired ? nameIsValid(firstNameDefaultValue) : true
+        isValid: nameIsValid(firstNameDefaultValue)
     };
     const emptyLastName = {
         lastName: lastNameDefaultValue,
-        isValid: lastNameRequired ? nameIsValid(lastNameDefaultValue) : true
+        isValid: nameIsValid(lastNameDefaultValue)
     };
 
     const [firstName, setFirstName] = useState(emptyFirstName);
@@ -64,7 +64,7 @@ function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidat
                         isValid={lastNameValidation ? lastName.isValid : undefined}
                         isInvalid={lastNameValidation ? (lastName.isValid === undefined ? undefined : !lastName.isValid) : undefined}
                     />
-                    <Form.Control.Feedback id={`${namePrefix}-last-feedbackd`} type={'invalid'}>Please enter a valid last name.</Form.Control.Feedback>
+                    <Form.Control.Feedback id={`${namePrefix}-last-feedback`} type={'invalid'}>Please enter a valid last name.</Form.Control.Feedback>
                 </Form.Group>
             </Form.Row>
         </div>
