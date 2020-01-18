@@ -1,7 +1,14 @@
 import React from 'react';
 import { Navbar, Container, Row, Col } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenSquare } from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPenSquare} from '@fortawesome/free-solid-svg-icons'
+
+const style = {
+    color: 'white',
+    backgroundColor: 'rgb(52,58,64)',
+    textAlign: 'center',
+    height: '3em'
+};
 
 function FormBuilderHeader() {
     return (
@@ -18,12 +25,5 @@ function FormBuilderHeader() {
         </div>
     );
 }
-
-const style = {
-    color: 'white',
-    backgroundColor: 'rgb(52,58,64)',
-    textAlign: 'center',
-    height: '3em'
-};
 
 export { FormBuilderHeader };

@@ -2,16 +2,12 @@ import React from 'react';
 import { FormBuilderHeader } from "./components/FormBuilderHeader/FormBuilderHeader";
 import { FormBuilderBody } from './components/FormBuilderBody/FormBuilderBody';
 import { FormBuilderFooter } from './components/FormBuilderFooter/FormBuilderFooter';
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
       <>
-      <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossOrigin="anonymous"
-      />
       <div className="App" style={{minHeight: '100vh'}}>
         <div id={'formBuilderHeader'}>
             <FormBuilderHeader/>
