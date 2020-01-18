@@ -1,6 +1,19 @@
 {
   "core": {
     "workingDir": ".reg",
-    "actualDir": "__screenshots__"
+    "actualDir": "__screenshots__",
+    "thresholdRate": 0,
+    "ximgdiff": {
+      "invocationType": "client"
+    }
+  },
+  "plugins": {
+    "reg-keygen-git-hash-plugin": true,
+    "reg-notify-github-plugin": {
+      "clientId": "MzI2MjAwMbc01nfLL8p1Ks3MSUkt0jczsrA0NjTSdwnKTzI0MjMAAA=="
+    },
+    "reg-publish-s3-plugin": {
+      "bucketName": "formbuilder-image-regression"
+    }
   }
 }
