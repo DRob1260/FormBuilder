@@ -2,9 +2,10 @@ FROM node:12.2.0-alpine as build
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 RUN npm install --production \
-    && npm install react-scripts@3.0.1 -g
+    && npm install react-scripts@3.0.1 -g \
+    && npm audit fix
 
 COPY . .
 RUN npm run build
