@@ -1,29 +1,30 @@
 import React from 'react';
-import { Container, Row, Col, FormControl, InputGroup } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { Container } from 'react-bootstrap';
+import {ComponentPickerRow} from '../ComponentPickerRow/ComponentPickerRow';
 
-function ComponentPicker() {
+function ComponentPicker({components}) {
     return (
         <div className={'ComponentPicker'}>
-            <Container fluid>
-                <Row>
-                    <Col>
-                        <InputGroup className="mb-3">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text><FontAwesomeIcon icon={faSearch}/></InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl
-                                id={'componentPickerSearch'}
-                                placeholder={"Search"}
-                                aria-label={"Search"}
-                            />
-                        </InputGroup>
-                    </Col>
-                </Row>
+            <Container fluid style={{marginTop: '2em' +
+                    ''}}>
+                <h5 style={{color: '#a5ffb4', marginBottom: '0em'}}>Form Objects</h5>
+                <div>{componentList(components)}</div>
             </Container>
         </div>
     )
+}
+
+const componentList = (components) => {
+    return components.map(component =>
+        <ComponentPickerRow
+            label={component.label}
+            component={component.component}
+        />
+    );
+};
+
+ComponentPicker.defaultProps = {
+    components: []
 }
 
 export { ComponentPicker };

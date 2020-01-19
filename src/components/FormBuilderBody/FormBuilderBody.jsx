@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { ComponentPicker } from "../ComponentPicker/ComponentPicker";
 import { FirstLastName } from "../FirstLastName/FirstLastName";
+import ComponentCatalog from "../ComponentCatalog/ComponentCatalog";
 
 function FormBuilderBody() {
     return (
@@ -9,7 +10,7 @@ function FormBuilderBody() {
             <Container fluid >
                 <Row>
                     <Col className='componentPickerCol' xs={12} lg={3} style={{backgroundColor: 'rgb(52,58,64)', minHeight: '100vh'}}>
-                        <ComponentPicker />
+                        <ComponentPicker components={ComponentCatalog}/>
                     </Col>
                     <Col>
                         <Container id={'formPreviewContainer'} style={{marginTop: '1.5em'}}>
