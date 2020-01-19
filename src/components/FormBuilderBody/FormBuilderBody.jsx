@@ -1,31 +1,23 @@
 import React, {useState} from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { ComponentPicker } from "../ComponentPicker/ComponentPicker";
-import { componentCatalog, browseCatalog } from "../ComponentCatalog/ComponentCatalog";
+import { Container, Row, Col, Form } from 'react-bootstrap';
+import { ComponentPicker } from '../ComponentPicker/ComponentPicker';
+import { componentCatalog } from '../ComponentCatalog/ComponentCatalog';
+import { renderFormComponents } from './utils';
 
 function FormBuilderBody({defaultForm}) {
     const [form, setForm] = useState(defaultForm || []);
 
-    const addComponent = (componentName) => {
+    /* istanbul ignore next */
+    const addComponentToForm = (componentName) => {
         setForm((prevState => [...prevState, componentName]));
     };
-
-    const renderFormComponents = () => {
-        return form.map((componentName, index) =>
-            <Row key={index}>
-                <Col>
-                    {browseCatalog(componentName).component}
-                </Col>
-            </Row>
-        );
-    }
 
     return (
         <div className={'FormBuilderBody'} >
             <Container fluid >
                 <Row>
                     <Col className='componentPickerCol' xs={12} lg={3} style={{backgroundColor: 'rgb(52,58,64)', minHeight: '100vh'}}>
-                        <ComponentPicker components={componentCatalog} addComponent={addComponent}/>
+                        <ComponentPicker components={componentCatalog} addComponent={addComponentToForm}/>
                     </Col>
                     <Col>
                         <Container id={'formPreviewContainer'} style={{marginTop: '1.5em'}}>
