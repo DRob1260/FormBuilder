@@ -3,11 +3,10 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { ComponentPicker } from "../ComponentPicker/ComponentPicker";
 import { componentCatalog, browseCatalog } from "../ComponentCatalog/ComponentCatalog";
 
-function FormBuilderBody() {
-    const [form, setForm] = useState([]);
+function FormBuilderBody({defaultForm}) {
+    const [form, setForm] = useState(defaultForm || []);
 
     const addComponent = (componentName) => {
-        console.log(componentName)
         setForm((prevState => [...prevState, componentName]));
     };
 
