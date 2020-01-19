@@ -1,9 +1,15 @@
+import React from 'react';
 import {FirstLastName} from '../FirstLastName/FirstLastName';
 
-export default [
-    {
-        component: FirstLastName,
+const componentCatalog = {
+    'firstLastName': {
+        component: <FirstLastName />,
         label: 'Name',
-        name: 'firstLastName'
     }
-]
+}
+
+const browseCatalog = (name) => {
+  return componentCatalog[name];
+};
+
+export { browseCatalog, componentCatalog };

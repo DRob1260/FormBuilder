@@ -16,7 +16,7 @@ function ComponentPickerRow({label, name, handleClick}) {
             style={mouseIsHere ? rowStyleWithHover : rowStyle}
             onMouseEnter={() => setMouseIsHere(true)}
             onMouseLeave={() => setMouseIsHere(false)}
-            onClick={handleClick}
+            onClick={() => handleClick(name)}
         >
             <Col xs={10}>
                 <h5>{label}</h5>

@@ -8,12 +8,11 @@ describe('ComponentPicker', () => {
        expect(wrapper).toIncludeText('Form Objects');
    }) ;
 
-   const components = [
-       {
+   const components = {
+       'myComponent': {
            label: 'My Component',
-           name:'myComponent'
        }
-   ]
+   }
 
 
    it('uses components prop', () => {
