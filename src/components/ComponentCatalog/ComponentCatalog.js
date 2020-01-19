@@ -3,6 +3,7 @@ import {FirstLastName} from '../FirstLastName/FirstLastName';
 export default [
     {
         component: FirstLastName,
-        label: 'Name'
+        label: 'Name',
+        name: 'firstLastName'
     }
 ]

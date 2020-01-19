@@ -67,7 +67,8 @@
       "!<rootDir>/node_modules/",
       "!**/index.js",
       "!**/coverage/**",
-      "!src/**/*.stories.js"
+      "!src/**/*.stories.js",
+      "!src/components/ComponentCatalog/**"
     ],
     "coverageThreshold": {
       "global": {
