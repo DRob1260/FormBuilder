@@ -9,10 +9,10 @@ function ComponentPicker({components, addComponent}) {
         for(let key of Object.keys(components)) {
             rows.push(
                 <ComponentPickerRow
-                key={key}
-                name={key}
-                label={components[key].label}
-                handleClick={addComponent}
+                    key={components[key].uuid}
+                    name={key}
+                    label={components[key].label}
+                    handleClick={addComponent}
                 />
             )
         }

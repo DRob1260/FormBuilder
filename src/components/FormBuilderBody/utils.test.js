@@ -4,7 +4,7 @@ import {renderFormComponents} from "./utils";
 
 describe('FormBuilderBody utils', () => {
    it('renderFormComponents', () => {
-       const renderedFormComponents = renderFormComponents(['firstLastName']);
+       const renderedFormComponents = renderFormComponents([{name: 'firstLastName', uuid: '7'}]);
        const wrapper = shallow(<div>{renderedFormComponents}</div>);
        expect(wrapper).toContainMatchingElement('FirstLastName');
    }) ;

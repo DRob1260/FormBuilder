@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Row, Col } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faChevronCircleRight, faAngleRight} from '@fortawesome/free-solid-svg-icons';
+let uuid = require('uuid/v4')
 
 function ComponentPickerRow({label, name, handleClick}) {
     const [mouseIsHere, setMouseIsHere] = useState(false);
@@ -18,10 +19,10 @@ function ComponentPickerRow({label, name, handleClick}) {
             onMouseLeave={() => setMouseIsHere(false)}
             onClick={() => handleClick(name)}
         >
-            <Col xs={10}>
+            <Col>
                 <h5>{label}</h5>
             </Col>
-            <Col xs={2} style={{textAlign: 'center'}}>
+            <Col xs={1} style={{textAlign: 'center'}}>
                 <FontAwesomeIcon
                     id={'componentPickerRowArrow'}
                     icon={faAngleRight}
@@ -41,6 +42,7 @@ function ComponentPickerRow({label, name, handleClick}) {
 }
 
 ComponentPickerRow.defaultProps = {
+    uuid: undefined,
     label: '',
     name: '',
     handleClick: undefined
