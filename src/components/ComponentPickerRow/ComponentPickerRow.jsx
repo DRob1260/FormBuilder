@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Row, Col } from 'react-bootstrap';
 import {useDispatch} from 'react-redux';
-import {addFormComponent} from '../../actions/index.js';
+import {addFormComponent} from '../../actions/form.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faChevronCircleRight, faAngleRight} from '@fortawesome/free-solid-svg-icons';
 

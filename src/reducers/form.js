@@ -6,7 +6,6 @@ const form = (state = [], action) => {
                 {
                     id: action.id,
                     name: action.name,
-                    type: action.type,
                     props: action.props
                 }
             ]

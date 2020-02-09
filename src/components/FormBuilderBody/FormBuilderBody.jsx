@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFormComponent } from '../../actions';
+import { removeFormComponent } from '../../actions/form.js';
 import { ComponentPicker } from '../ComponentPicker/ComponentPicker';
 import {browseCatalog, componentCatalog} from '../ComponentCatalog/ComponentCatalog';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -27,7 +27,7 @@ function FormBuilderBody() {
                                         {form.map((component) =>
                                             <Row key={component.id}>
                                                 <Col xs={1} style={{textAlign: 'center'}}>
-                                                    <FontAwesomeIcon icon={faTimesCircle} onClick={() => dispatch(removeFormComponent(component.id))} size={'lg'} style={{marginTop: '1.75em'}}/>
+                                                    <FontAwesomeIcon id={`removeComponent-${component.id}`} icon={faTimesCircle} onClick={() => dispatch(removeFormComponent(component.id))} size={'lg'} style={{marginTop: '1.75em'}}/>
                                                 </Col>
                                                 <Col xs={11}>
                                                     {browseCatalog(component.name, component.props)}

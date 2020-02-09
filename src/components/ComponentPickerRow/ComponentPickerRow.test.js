@@ -1,36 +1,61 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import {ComponentPickerRow} from "./ComponentPickerRow";
+import {shallow, mount} from 'enzyme';
+import {ComponentPickerRow} from './ComponentPickerRow';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+
+const reducer = (state) => {
+    return state;
+};
+const store = createStore(reducer);
 
 describe('ComponentPickerRow', () => {
-   it('should render', () => {
-       const wrapper = shallow(<ComponentPickerRow />)
-       expect(wrapper).toContainMatchingElement('FontAwesomeIcon');
-   });
+    it('should render', () => {
+        const wrapper = shallow(
+            <Provider store={store}>
+                <ComponentPickerRow/>
+            </Provider>
+        );
+        expect(wrapper).toContainMatchingElement('ComponentPickerRow');
+    });
 
-   it('uses label prop', () => {
-       const wrapper = shallow(<ComponentPickerRow label={'My Form Object'}/>);
-       expect(wrapper).toIncludeText('My Form Object');
-   });
+    it('uses label prop', () => {
+        const wrapper = mount(
+            <Provider store={store}>
+                <ComponentPickerRow label={'My Form Object'} name={'firstLastName'}/>
+            </Provider>
+        );
+        expect(wrapper).toIncludeText('My Form Object');
+    });
 
-   it('changes look on mouseover', () => {
-       const wrapper = shallow(<ComponentPickerRow label={'My Form Object'}/>);
+    it('changes look on mouseover', () => {
+        const wrapper = mount(
+            <Provider store={store}>
+                <ComponentPickerRow label={'My Form Object'}/>
+            </Provider>
+        );
 
-       wrapper.find('#componentPickerRow').simulate('mouseenter');
-       expect(wrapper.find('#componentPickerRow')).toHaveStyle('color', '#007bff');
-       expect(wrapper.find('#componentPickerRowArrow')).toHaveProp('hidden', true);
-       expect(wrapper.find('#componentPickerRowArrowOnHover')).toHaveProp('hidden', false);
+        const findComponentPickerRow = () => {return wrapper.find('#componentPickerRow').hostNodes()}
+        const findComponentPickerRowArrow = () => {return wrapper.find('#componentPickerRowArrow').hostNodes()}
+        const findComponentPickerRowOnHover = () => {return wrapper.find('#componentPickerRowArrowOnHover').hostNodes()}
 
-       wrapper.find('#componentPickerRow').simulate('mouseleave');
-       expect(wrapper.find('#componentPickerRow')).toHaveStyle('color', 'white');
-       expect(wrapper.find('#componentPickerRowArrow')).toHaveProp('hidden', false);
-       expect(wrapper.find('#componentPickerRowArrowOnHover')).toHaveProp('hidden', true);
-   });
+        findComponentPickerRow().simulate('mouseenter');
+        expect(findComponentPickerRow()).toHaveStyle('color', '#007bff');
+        expect(findComponentPickerRowArrow()).toHaveProp('hidden', true);
+        expect(findComponentPickerRowOnHover()).toHaveProp('hidden', false);
 
-   it('uses onClick prop', () => {
-       const mockHandleClick = jest.fn();
-       const wrapper = shallow(<ComponentPickerRow handleClick={mockHandleClick}/>)
-       wrapper.find('#componentPickerRow').simulate('click');
-       expect(mockHandleClick).toHaveBeenCalledTimes(1);
-   });
+        findComponentPickerRow().simulate('mouseleave');
+        expect(findComponentPickerRow()).toHaveStyle('color', 'white');
+        expect(findComponentPickerRowArrow()).toHaveProp('hidden', false);
+        expect(findComponentPickerRowOnHover()).toHaveProp('hidden', true);
+    });
+
+    it('is clickable', () => {
+        const wrapper = mount(
+            <Provider store={store}>
+                <ComponentPickerRow label={'My Form Object'}/>
+            </Provider>
+        );
+        wrapper.find('#componentPickerRow').hostNodes().simulate('click');
+    });
 });
