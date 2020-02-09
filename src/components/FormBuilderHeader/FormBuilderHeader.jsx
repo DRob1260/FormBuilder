@@ -9,7 +9,7 @@ const style = {
 
 const logoStyle = {
     textAlign: 'center',
-    color: 'white',
+    color: '#a5ffb4',
 }
 
 function FormBuilderHeader() {
@@ -20,7 +20,8 @@ function FormBuilderHeader() {
                     <Col xs={12} lg={3}>
                         <Navbar>
                             <Navbar.Brand style={logoStyle}>
-                                <h3><FontAwesomeIcon icon={faPenSquare} /> Form Builder</h3>
+                                <h3 style={{marginBottom: '.05em'}}><FontAwesomeIcon icon={faPenSquare} /> Form Builder</h3>
+                                <hr style={{backgroundColor: '#a5ffb4', marginTop: '0em', marginBottom: '0em'}}/>
                             </Navbar.Brand>
                         </Navbar>
                     </Col>

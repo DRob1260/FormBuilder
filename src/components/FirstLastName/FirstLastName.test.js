@@ -11,7 +11,7 @@ describe('FirstLastName', () => {
         expect(wrapper.find('#name-last')).toExist();
     });
 
-    it('renders label prop', () => {
+    it('uses label prop', () => {
         const wrapper = shallow(<FirstLastName label={'My Label'}/>)
         expect(wrapper).toIncludeText('My Label');
     });
