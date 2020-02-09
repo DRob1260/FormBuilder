@@ -8,8 +8,10 @@ const componentCatalog = {
     }
 }
 
-const browseCatalog = (name) => {
-  return componentCatalog[name];
+const browseCatalog = (name, props) => {
+  const catalogEntry = componentCatalog[name];
+  return React.cloneElement(catalogEntry.component, {...props})
 };
 
-export { browseCatalog, componentCatalog };
+export { browseCatalog, componentCatalog
+};

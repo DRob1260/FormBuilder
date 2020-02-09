@@ -2,17 +2,17 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import {ComponentPickerRow} from '../ComponentPickerRow/ComponentPickerRow';
 
-function ComponentPicker({components, addComponent}) {
+function ComponentPicker({components}) {
 
     const componentPickerRows = () => {
         let rows = [];
         for(let key of Object.keys(components)) {
+            console.log(key)
             rows.push(
                 <ComponentPickerRow
-                    key={components[key].uuid}
+                    key={key}
                     name={key}
                     label={components[key].label}
-                    handleClick={addComponent}
                 />
             )
         }
@@ -30,8 +30,7 @@ function ComponentPicker({components, addComponent}) {
 }
 
 ComponentPicker.defaultProps = {
-    components: [],
-    addComponent: undefined
+    components: []
 }
 
 export { ComponentPicker };

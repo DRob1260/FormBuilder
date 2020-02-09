@@ -1,11 +1,14 @@
 import React from 'react';
 import {ComponentPickerRow} from './ComponentPickerRow';
-import {FirstLastName} from "../FirstLastName/FirstLastName";
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import form from '../../reducers/form';
+const store = createStore(form);
 
 export default {
     title: 'ComponentPickerRow',
     component: ComponentPickerRow,
-    decorators: [component => <div style={{backgroundColor: 'rgb(52,58,64)'}}>{component()}</div>]
+    decorators: [component => <Provider store={store}><div style={{backgroundColor: 'rgb(52,58,64)'}}>{component()}</div></Provider>]
 }
 
 export const componentPickerRowDefault = () => <ComponentPickerRow/>
@@ -21,7 +24,7 @@ componentPickerRowDefault.story = {
     },
 };
 
-export const componentPickerRowWithProps = () => <ComponentPickerRow label={'Name'} component={<FirstLastName />} description={"Input for a name"}/>
+export const componentPickerRowWithProps = () => <ComponentPickerRow label={'Name'} name={'firstLastName'}/>
 componentPickerRowWithProps.story = {
     parameters: {
         screenshot: {
