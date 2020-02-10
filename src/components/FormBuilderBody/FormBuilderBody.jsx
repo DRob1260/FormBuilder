@@ -5,7 +5,7 @@ import { removeFormComponent } from '../../actions/form.js';
 import { ComponentPicker } from '../ComponentPicker/ComponentPicker';
 import {browseCatalog, componentCatalog} from '../ComponentCatalog/ComponentCatalog';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
 
 function FormBuilderBody() {
     const form = useSelector(state => state);
@@ -16,7 +16,7 @@ function FormBuilderBody() {
         <div className={'FormBuilderBody'} >
             <Container fluid >
                 <Row>
-                    <Col className='componentPickerCol' xs={3} style={{backgroundColor: 'rgb(52,58,64)', minHeight: '100vh'}}>
+                    <Col className='componentPickerCol' lg={12} style={{backgroundColor: 'rgb(52,58,64)'}}>
                         <ComponentPicker components={componentCatalog} />
                     </Col>
                     <Col>
@@ -26,10 +26,14 @@ function FormBuilderBody() {
                                     <Form>
                                         {form.map((component) =>
                                             <Row key={component.id}>
-                                                <Col xs={1} style={{textAlign: 'center'}}>
-                                                    <FontAwesomeIcon id={`removeComponent-${component.id}`} icon={faTimesCircle} onClick={() => dispatch(removeFormComponent(component.id))} size={'lg'} style={{marginTop: '1.75em'}}/>
+                                                <Col xs={.5} style={{textAlign: 'top'}}>
+                                                    <FontAwesomeIcon
+                                                        icon={faTimes}
+                                                        id={`removeComponent-${component.id}`}
+                                                        onClick={() => dispatch(removeFormComponent(component.id))}
+                                                        />
                                                 </Col>
-                                                <Col xs={11}>
+                                                <Col>
                                                     {browseCatalog(component.name, component.props)}
                                                 </Col>
                                             </Row>
