@@ -36,18 +36,12 @@ describe('ComponentPickerRow', () => {
         );
 
         const findComponentPickerRow = () => {return wrapper.find('#componentPickerRow').hostNodes()}
-        const findComponentPickerRowArrow = () => {return wrapper.find('#componentPickerRowArrow').hostNodes()}
-        const findComponentPickerRowOnHover = () => {return wrapper.find('#componentPickerRowArrowOnHover').hostNodes()}
 
         findComponentPickerRow().simulate('mouseenter');
         expect(findComponentPickerRow()).toHaveStyle('color', '#007bff');
-        expect(findComponentPickerRowArrow()).toHaveProp('hidden', true);
-        expect(findComponentPickerRowOnHover()).toHaveProp('hidden', false);
 
         findComponentPickerRow().simulate('mouseleave');
         expect(findComponentPickerRow()).toHaveStyle('color', 'white');
-        expect(findComponentPickerRowArrow()).toHaveProp('hidden', false);
-        expect(findComponentPickerRowOnHover()).toHaveProp('hidden', true);
     });
 
     it('is clickable', () => {

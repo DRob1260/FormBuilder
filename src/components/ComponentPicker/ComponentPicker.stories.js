@@ -46,5 +46,20 @@ const componentCatalog = {
     },
     'time': {
         label: 'Time'
+    },
+    'ssn': {
+        label: 'SSN'
+    },
+    'creditCard': {
+        label: 'Credit Card'
+    },
+    'location': {
+        label: 'Location'
+    },
+    'phoneNumber': {
+        label: 'Phone Number'
+    },
+    'email': {
+        label: 'Email Address'
     }
 };

@@ -5,8 +5,6 @@ import {App} from './App';
 describe('App', () => {
    it('should render', () => {
       const wrapper = shallow(<App/>);
-      expect(wrapper).toContainMatchingElement('FormBuilderHeader');
       expect(wrapper).toContainMatchingElement('FormBuilderBody');
-      expect(wrapper).toContainMatchingElement('FormBuilderFooter');
    });
 });
