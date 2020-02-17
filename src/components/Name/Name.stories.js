@@ -1,13 +1,13 @@
 import React from 'react';
-import {FirstLastName} from "./FirstLastName";
+import {Name} from "./Name";
 
 export default {
-  title: 'FirstLastName',
-  component: FirstLastName,
+  title: 'Name',
+  component: Name,
 };
 
-export const FirstLastNameDefault = () => <FirstLastName />;
-FirstLastNameDefault.story = {
+export const NameDefault = () => <Name />;
+NameDefault.story = {
   parameters: {
     screenshot: {
       variants: {
@@ -19,8 +19,8 @@ FirstLastNameDefault.story = {
   },
 };
 
-export const firstLastNameWithProps = () =>
-    <FirstLastName label={'Your Name'}
+export const NameWithProps = () =>
+    <Name label={'Your Name'}
                    namePrefix={'your-name'}
                    firstNameValidation={true}
                    lastNameValidation={true}
@@ -29,7 +29,7 @@ export const firstLastNameWithProps = () =>
                    firstNameDefaultValue={'&'}
                    lastNameDefaultValue={'Robert'}
     />;
-firstLastNameWithProps.story = {
+NameWithProps.story = {
   parameters: {
     screenshot: {
       variants: {

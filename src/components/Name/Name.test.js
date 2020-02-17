@@ -1,8 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {FirstLastName} from "./FirstLastName";
-import {First} from "react-bootstrap/PageItem";
-
+import {FirstLastName} from "./Name.test";
 
 describe('FirstLastName', () => {
     it('should render', () => {

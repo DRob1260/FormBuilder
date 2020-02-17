@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Col, Form} from 'react-bootstrap';
 
-function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidation, firstNameRequired, lastNameRequired, firstNameDefaultValue, lastNameDefaultValue }) {
+function Name({ label, namePrefix, firstNameValidation, lastNameValidation, firstNameRequired, lastNameRequired, firstNameDefaultValue, lastNameDefaultValue }) {
 
     const nameIsValid = (name) => {
         let regex = RegExp(`^[a-zA-Z]+(([',.-][a-zA-Z ])?[a-zA-Z]*)*$`);
@@ -35,7 +35,7 @@ function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidat
     };
 
     return (
-        <div className={'FirstLastName'} style={{textAlign: 'left'}}>
+        <div className={'Name'} style={{textAlign: 'left'}}>
             <Form.Label>{label}</Form.Label>
             <Form.Row>
                 <Form.Group as={Col} xs={12} sm={6}>
@@ -62,7 +62,8 @@ function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidat
                         required={lastNameRequired}
                         onChange={handleLastNameChange}
                         isValid={lastNameValidation ? lastName.isValid : undefined}
-                        isInvalid={lastNameValidation ? (lastName.isValid === undefined ? undefined : !lastName.isValid) : undefined}
+                        isInvalid={lastName
+                             ? (lastName.isValid === undefined ? undefined : !lastName.isValid) : undefined}
                     />
                     <Form.Control.Feedback id={`${namePrefix}-last-feedback`} type={'invalid'}>Please enter a valid last name.</Form.Control.Feedback>
                 </Form.Group>
@@ -71,7 +72,7 @@ function FirstLastName({ label, namePrefix, firstNameValidation, lastNameValidat
     );
 }
 
-FirstLastName.defaultProps = {
+Name.defaultProps = {
     label: 'Name',
     namePrefix: 'name',
     firstNameValidation: false,
@@ -82,4 +83,4 @@ FirstLastName.defaultProps = {
     lastNameDefaultValue: ''
 };
 
-export { FirstLastName }
+export { Name }

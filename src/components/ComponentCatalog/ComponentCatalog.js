@@ -1,9 +1,9 @@
 import React from 'react';
-import {FirstLastName} from '../FirstLastName/FirstLastName';
+import {Name} from '../Name/Name.jsx';
 
 const componentCatalog = {
-    'firstLastName': {
-        component: <FirstLastName />,
+    'name': {
+        component: <Name />,
         label: 'Name',
     }
 }
