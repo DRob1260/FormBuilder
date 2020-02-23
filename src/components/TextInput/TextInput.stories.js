@@ -50,7 +50,7 @@ export const TextInputInvalid = () =>
   inputDefault = {"I'm invalid"}
   validation={validatorReturnsFalse}
 />
-TextInputWithProps.story = {
+TextInputInvalid.story = {
   parameters: {
     screenshot: {
       variants: {
