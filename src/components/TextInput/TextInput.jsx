@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Col, Form} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 import {DefaultValidation} from '../../utils/Validators';
 
 function TextInput({inputType, uuid, label, placeholder, inputDefault, required, validation}) {
