@@ -8,14 +8,11 @@ describe('form reducer', () => {
     it('should handle ADD_COMPONENT', () => {
         const action = {
             type: 'ADD_COMPONENT',
-            id: 'myId',
-            props: {myProp: 'hello'},
-            name: 'myName'
+            props: {myProp: 'hello', id: 'myId'},
         };
         const expectedState = [{
             id: 'myId',
-            props: {myProp: 'hello'},
-            name: 'myName'
+            props: {myProp: 'hello', id: 'myId'},
         }]
         const state = reducer([], action);
 

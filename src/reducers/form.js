@@ -4,8 +4,7 @@ const form = (state = [], action) => {
             return [
                 ...state,
                 {
-                    id: action.id,
-                    name: action.name,
+                    id: action.props.id,
                     props: action.props
                 }
             ]

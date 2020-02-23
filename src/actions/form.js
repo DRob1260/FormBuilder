@@ -1,10 +1,11 @@
 const uuid = require('uuid/v4');
 
-export function addFormComponent(name, props) {
+export function addFormComponent(name, existingProps) {
+    const props = existingProps ? existingProps : {}
+    props.id = uuid();
+    props.name = name;
     return {
         type: 'ADD_COMPONENT',
-        id: uuid(),
-        name,
         props
     }
 };

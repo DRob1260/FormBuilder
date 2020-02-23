@@ -24,7 +24,7 @@ componentPickerRowDefault.story = {
     },
 };
 
-export const componentPickerRowWithProps = () => <ComponentPickerRow label={'Name'} name={'firstLastName'}/>
+export const componentPickerRowWithProps = () => <ComponentPickerRow label={'Name'} name={'name'}/>
 componentPickerRowWithProps.story = {
     parameters: {
         screenshot: {

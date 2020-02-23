@@ -18,23 +18,23 @@ describe('FormBuilderBody', () => {
     });
 
     it('should show form components that are present in the state', () => {
-        const store = createStore(() => {return [{id: 'anId', name: 'firstLastName', type: 'firstLastName', props: {}}]})
+        const store = createStore(() => [{id: 'myId', type: 'name', props: {id: 'myId', name: 'name'}}]);
         const wrapper = mount(
             <Provider store={store}>
                 <FormBuilderBody/>
             </Provider>
         );
-        expect(wrapper).toContainMatchingElement('FirstLastName');
+        expect(wrapper).toContainMatchingElement('Name');
     });
 
     it('should have a remove button that can be clicked for each form component', () => {
-        const store = createStore(() => [{id: 'anId', name: 'firstLastName', type: 'firstLastName', props: {}}]);
+        const store = createStore(() => [{id: 'myId', type: 'name', props: {id: 'myId', name: 'name'}}]);
         const wrapper = mount(
             <Provider store={store}>
                 <FormBuilderBody/>
             </Provider>
         );
-        expect(wrapper.find('.FirstLastName').hostNodes()).toExist();
-        wrapper.find('#removeComponent-anId').hostNodes().simulate('click');
+        expect(wrapper.find('.Name').hostNodes()).toExist();
+        wrapper.find('#removeComponent-myId').hostNodes().simulate('click');
     });
 });
