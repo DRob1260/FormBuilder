@@ -4,7 +4,7 @@ import {DefaultValidation} from '../../utils/Validators';
 
 function TextInput({inputType, uuid, label, placeholder, inputDefault, required, validation}) {
 
-    const [input, setInput] = useState(inputDefault)
+    const [input, setInput] = useState({value: inputDefault, isValid: validation.test(inputDefault)})
 
     const handleChange = (event) => {
         const v = event.target.value;
@@ -13,11 +13,11 @@ function TextInput({inputType, uuid, label, placeholder, inputDefault, required,
     };
 
     return(
-        <div>
-            <Form.Label>{label}</Form.Label>
+        <div className={'TextInput'}>
+            {label ? <Form.Label>{label}</Form.Label> : <div></div>}
             <Form.Control
-                id={`${inputType}-${uuid}`}
-                name={`${inputType}-${uuid}`}
+                id={`textInput-${uuid}`}
+                name={`textInput-${uuid}`}
                 type={inputType}
                 placeholder={placeholder}
                 value={input.value}
@@ -33,11 +33,11 @@ function TextInput({inputType, uuid, label, placeholder, inputDefault, required,
 }
 
 TextInput.defaultProps = {
-    inputType: 'name',
+    inputType: 'text',
     uuid: '',
-    label: '',
+    label: undefined,
     placeholder: '',
-    inputDefault: {value: '', isValid: undefined},
+    inputDefault: '',
     required: false,
     validation: DefaultValidation
 }

@@ -19,15 +19,33 @@ NameDefault.story = {
   },
 };
 
+const defaultName = {
+  inputType: 'name',
+  placeholder: 'First Name', 
+  inputDefault: 'Drew', 
+  required: true, 
+}
+
+const middleName = {
+  inputType: 'name',
+  placeholder: 'Middle Name', 
+  inputDefault: '&*_+', 
+  required: true, 
+}
+
+const lastName = {
+  inputType: 'name',
+  placeholder: 'Last Name', 
+  inputDefault: undefined, 
+  required: true, 
+}
+
 export const NameWithProps = () =>
-    <Name label={'Your Name'}
-                   namePrefix={'your-name'}
-                   firstNameValidation={true}
-                   lastNameValidation={true}
-                   firstNameRequired={true}
-                   lastNameRequired={true}
-                   firstNameDefaultValue={'&'}
-                   lastNameDefaultValue={'Robert'}
+    <Name 
+      label={'Your Name'}
+      defaultName={defaultName}
+      middleName={middleName}
+      lastName={lastName}
     />;
 NameWithProps.story = {
   parameters: {

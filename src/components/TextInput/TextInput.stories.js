@@ -1,6 +1,6 @@
 import React from 'react';
 import {TextInput} from './TextInput';
-import {FirstNameValidation} from '../../utils/Validators';
+import {DefaultValidation} from '../../utils/Validators';
 
 export default {
     title: 'TextInput',
@@ -20,15 +20,18 @@ TextInputDefault.story = {
     },
 };
 
+const validatorReturnsTrue = {test: () => {return true}, message: "anything"};
+const validatorReturnsFalse = {test: () => {return false}, message: "Invalid input"};
+
 export const TextInputWithProps = () => 
 <TextInput 
     type = {'name'}
     uuid = {''}
     label = {'First Name'}
     placeholder = {'First Name'}
-    inputDefault = {{value: 'Drew', isValid: true}}
+    inputDefault = {'Drew'}
     required = {true}
-    validation = {FirstNameValidation}
+    validation = {validatorReturnsTrue}
 />;
 TextInputWithProps.story = {
     parameters: {
@@ -41,3 +44,20 @@ TextInputWithProps.story = {
       },
     },
 };
+
+export const TextInputInvalid = () => 
+<TextInput
+  inputDefault = {"I'm invalid"}
+  validation={validatorReturnsFalse}
+/>
+TextInputWithProps.story = {
+  parameters: {
+    screenshot: {
+      variants: {
+        mobile: {
+          viewport: 'iPhone X',
+        }
+      },
+    },
+  },
+}

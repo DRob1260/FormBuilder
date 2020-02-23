@@ -7,10 +7,10 @@ describe('form actions', () => {
         const props = {myProp: 'prop'};
         const actionResult = addFormComponent(name, props);
 
-        expect(actionResult.name).toEqual(name);
-        expect(actionResult.props).toEqual(props);
+        expect(actionResult.props).toHaveProperty('myProp', 'prop');
+        expect(actionResult.props.name).toEqual(name);
+        expect(actionResult.props.id).toBeDefined();
         expect(actionResult.type).toEqual(type);
-        expect(actionResult.id).toBeDefined();
     })
 
     it('should create an action to remove a form component', () => {

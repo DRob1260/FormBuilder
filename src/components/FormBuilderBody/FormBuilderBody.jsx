@@ -29,12 +29,12 @@ function FormBuilderBody() {
                                                 <Col xs={.5} style={{textAlign: 'top'}}>
                                                     <FontAwesomeIcon
                                                         icon={faTimes}
-                                                        id={`removeComponent-${component.id}`}
-                                                        onClick={() => dispatch(removeFormComponent(component.id))}
+                                                        id={`removeComponent-${component.props.id}`}
+                                                        onClick={() => dispatch(removeFormComponent(component.props.id))}
                                                         />
                                                 </Col>
                                                 <Col>
-                                                    {browseCatalog(component.name, component.props)}
+                                                    {browseCatalog(component.props)}
                                                 </Col>
                                             </Row>
                                         )}

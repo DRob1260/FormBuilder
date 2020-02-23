@@ -22,7 +22,7 @@ describe('ComponentPickerRow', () => {
     it('uses label prop', () => {
         const wrapper = mount(
             <Provider store={store}>
-                <ComponentPickerRow label={'My Form Object'} name={'firstLastName'}/>
+                <ComponentPickerRow label={'My Form Object'} />
             </Provider>
         );
         expect(wrapper).toIncludeText('My Form Object');
