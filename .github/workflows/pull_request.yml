@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -18,3 +18,5 @@ jobs:
         run: npm run test:coverage
       - name: Build
         run: npm run build
+      - name: Image Regression Test
+        run: npm run test:image-regression
