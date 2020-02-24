@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        uses: npm install
+        run: npm install
       - name: Test
         run: npm run test
       - name: Build
