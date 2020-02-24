@@ -10,7 +10,6 @@ jobs:
     name: Build and Test
     runs-on: ubuntu-latest
     steps:
-      - name: 
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
