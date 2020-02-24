@@ -20,6 +20,6 @@ jobs:
         run: npm run build
       - name: workaround for detached HEAD
         run: |
-          git checkout ${GITHUB_HEAD_REF#refs/heads/} || git checkout -b ${GITHUB_HEAD_REF#refs/heads/} && git pull origin ${GITHUB_HEAD_REF#refs/heads/}
+          echo ${GITHUB_HEAD_REF#refs/heads/} && git checkout ${GITHUB_HEAD_REF#refs/heads/} || git checkout -b ${GITHUB_HEAD_REF#refs/heads/} && git pull
       - name: Image Regression Test
         run: npm run test:image-regression
