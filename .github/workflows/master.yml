@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         uses: npm install
+      - name: Test
+        run: npm run test
       - name: Build
-        run: 
-          - npm run test
-          - npm run build
+        run: npm run build
       - name: Archive Build Artifact
         uses: actions/upload-artifact@master
         with: 
