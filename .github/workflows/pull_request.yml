@@ -13,15 +13,12 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.head_ref }}
       - name: Install Dependencies
         run: npm install
       - name: Test
         run: npm run test:coverage
       - name: Build
         run: npm run build
-      - name: workaround for detached HEAD
-        run: |
-          git checkout ${GITHUB_REF#refs/heads/} || git checkout -b ${GITHUB_REF#refs/heads/} && git pull
       - name: Image Regression Test
         run: npm run test:image-regression
