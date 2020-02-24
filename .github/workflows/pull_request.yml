@@ -13,7 +13,8 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          ref: "${GITHUB_HEAD_REF}"
+          fetch-depth: 2
+        run: git checkout HEAD^
       - name: Install Dependencies
         run: npm install
       - name: Test
