@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+        with:
+          ref: "${GITHUB_HEAD_REF}"
       - name: Install Dependencies
         run: npm install
       - name: Test
