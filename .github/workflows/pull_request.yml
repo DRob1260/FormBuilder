@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-        run: |
+        - uses: actions/checkout@v2
+        - run: |
             git fetch --prune --unshallow
       - name: Install Dependencies
         run: npm install
