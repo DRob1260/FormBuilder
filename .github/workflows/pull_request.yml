@@ -6,6 +6,18 @@ on:
       - master
 
 jobs:
+  gcloud:
+    name: Google Cloud Setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '281.0.0'
+          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+      - run: gcloud info
   build:
     name: Build and Test
     runs-on: ubuntu-latest

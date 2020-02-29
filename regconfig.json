@@ -11,9 +11,8 @@
     "reg-notify-github-plugin": {
       "clientId": "MzI2MjAwMbc01nfLL8p1Ks3MSUkt0jczsrA0NjTSdwnKTzI0MjMAAA=="
     },
-    "reg-simple-keygen-plugin": {
-      "expectedKey": "${EXPECTED_KEY}",
-      "actualKey": "${ACTUAL_KEY}"
+    "reg-publish-gcs-plugin": {
+      "bucketName": "image-regression-tests"
     }
   }
 }
