@@ -14,7 +14,7 @@ jobs:
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: '281.0.0'
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          service_account_key: ${{ secrets.GCP_SA_KEY_IMAGE_REGRESSION }}
           export_default_credentials: true
       - run: gcloud info
   build:
@@ -32,7 +32,5 @@ jobs:
       - name: Image Regression Test
         run: npm run test:image-regression && ls
         env: 
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           EXPECTED_KEY: ${{ github.base_ref }}
           ACTUAL_KEY: ${{ github.head_ref }}
