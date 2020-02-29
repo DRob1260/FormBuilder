@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "formbuilder-d708f"
+  },
+  "targets": {
+    "formbuilder-d708f": {
+      "hosting": {
+        "prod": [
+          "formbuilder-prod"
+        ],
+        "test": [
+          "formbuilder-d708f"
+        ]
+      }
+    }
   }
 }
