@@ -1,0 +1,49 @@
+.loadingIcon {
+    color: rgb(52,58,64);
+}
+
+.deleteIcon {
+    .outer {
+        color: rgb(52,58,64);
+        visibility: hidden;
+        
+    }
+    .inner {
+        color: rgb(64, 53, 52);
+    }
+}
+
+.deleteIcon:hover {
+    .outer {
+        visibility: visible;
+    }
+    .inner {
+        color: rgb(248, 29, 0);
+    }
+    cursor: pointer
+}
+
+.genericIcon {
+    .outer {
+        color: rgb(52,58,64);
+        visibility: hidden;
+    }
+    .inner {
+        color: rgb(52,58,64);
+    }
+}
+
+.genericIcon:hover {
+    .outer {
+        visibility: visible;
+    }
+    .inner {
+        color: #a5ffb4;
+    }
+    cursor: pointer
+}
+
+.errorIcon {
+    color: rgb(247, 200, 69);
+}
+
