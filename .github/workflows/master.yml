@@ -6,20 +6,21 @@ on:
       - master
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
   github-page:
-    - name: Build Storybook
-        run: npm run storybook:build
-    - name: Commit Storybook Files
-        run: |
-          git config --local user.email "botmcbotface26@gmail.com"
-          git config --local user.name "Bot McBotface" 
-          git commit -m "Publishing Storybook" -a
-    - name: Deploy Storybook 
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    name: GitHub Page
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Storybook
+          run: npm run storybook:build
+      - name: Commit Storybook Files
+          run: |
+            git config --local user.email "botmcbotface26@gmail.com"
+            git config --local user.name "Bot McBotface" 
+            git commit -m "Publishing Storybook" -a
+      - name: Deploy Storybook 
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
   build:
     name: Build
     runs-on: ubuntu-latest
