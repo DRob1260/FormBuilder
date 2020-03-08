@@ -21,7 +21,8 @@ jobs:
           ls
           git config --local user.email "botmcbotface26@gmail.com"
           git config --local user.name "Bot McBotface" 
-          git commit docs -m "Publishing Storybook" 
+          git add docs
+          git commit -m "Publishing Storybook" 
       - name: Deploy Storybook 
         uses: ad-m/github-push-action@master
         with:
