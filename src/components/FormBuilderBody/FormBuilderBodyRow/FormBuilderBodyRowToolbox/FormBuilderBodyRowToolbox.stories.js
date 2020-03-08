@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormBuilderBodyRowToolbox} from './FormBuilderBodyRowToolbox.jsx.js';
+import {FormBuilderBodyRowToolbox} from './FormBuilderBodyRowToolbox.jsx';
 
 export default {
     title: 'FormBuilderBodyRowToolbox',
