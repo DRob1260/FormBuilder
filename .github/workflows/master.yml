@@ -16,13 +16,20 @@ jobs:
         run: npm install
       - name: Test
         run: npm run test:coverage
-      - name: Build
-        run: npm run build
-      - name: Archive Build Artifact
+      - name: Build Storybook
+        run: npm run build:storybook
+      - name: Archive Formbuilder Artifact
         uses: actions/upload-artifact@master
         with: 
           name: build
           path: build
+      - name: Build Formbuilder
+        run: npm run build
+      - name: Archive Storybook Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: docs
+          path: docs
   deploy: 
     name: Deploy
     needs: build
@@ -30,7 +37,20 @@ jobs:
     steps: 
       - name: Checkout Repo
         uses: actions/checkout@master
-      - name: Download Artifact
+      - name: Download Storybook Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: docs
+      - name: Commit Storybook Files
+        run: |
+          git config --local user.email "botmcbotface26@gmail.com"
+          git config --local user.name "Bot McBotface" 
+          git commit -m "Publishing Storybook" -a
+      - name: Deploy Storybook 
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Download Formbuilder Artifact
         uses: actions/download-artifact@master
         with:
           name: build
