@@ -10,6 +10,10 @@ jobs:
     name: GitHub Page
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm install
       - name: Build Storybook
         run: npm run storybook:build
       - name: Commit Storybook Files
