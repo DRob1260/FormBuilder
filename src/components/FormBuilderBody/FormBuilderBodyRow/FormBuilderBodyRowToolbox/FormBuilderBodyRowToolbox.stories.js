@@ -1,9 +1,14 @@
 import React from 'react';
 import {FormBuilderBodyRowToolbox} from './FormBuilderBodyRowToolbox.jsx';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import form from '../../../../reducers/form';
+const store = createStore(form);
 
 export default {
     title: 'FormBuilderBodyRowToolbox',
     component: FormBuilderBodyRowToolbox,
+    decorators: [component => <Provider store={store}>{component()}</Provider>]
 }
 
 export const FormBuilderBodyRowToolboxDefault = () => <FormBuilderBodyRowToolbox />

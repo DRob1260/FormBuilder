@@ -1,5 +1,10 @@
+.FormBuilderBodyRowToolbox {
+    text-align: center;
+    padding: 5px;
+}
+
 .loadingIcon {
-    color: rgb(52,58,64);
+    color: #a5ffb4;
 }
 
 .deleteIcon {
@@ -9,7 +14,7 @@
         
     }
     .inner {
-        color: rgb(64, 53, 52);
+        color: rgb(91, 99, 107);
     }
 }
 
@@ -20,7 +25,17 @@
     .inner {
         color: rgb(248, 29, 0);
     }
-    cursor: pointer
+    cursor: pointer;
+}
+
+.deleteIcon:active {
+    .outer {
+        visibility: visible;
+        color: rgb(91, 99, 107);
+    }
+    .inner {
+        color: rgb(250, 98, 77);
+    }
 }
 
 .genericIcon {
@@ -29,7 +44,7 @@
         visibility: hidden;
     }
     .inner {
-        color: rgb(52,58,64);
+        color: rgb(91, 99, 107);
     }
 }
 
@@ -40,7 +55,17 @@
     .inner {
         color: #a5ffb4;
     }
-    cursor: pointer
+    cursor: pointer;
+}
+
+.genericIcon:active {
+    .outer {
+        visibility: visible;
+        color: rgb(91, 99, 107);
+    }
+    .inner {
+        color: #cdf7d4;
+    }
 }
 
 .errorIcon {

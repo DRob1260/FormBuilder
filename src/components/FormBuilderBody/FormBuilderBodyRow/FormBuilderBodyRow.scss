@@ -1,0 +1,18 @@
+.FormBuilderBodyRow {
+    .FormBuilderBodyRowToolbox {
+        .Toolbox {
+            visibility: hidden;
+        }
+    }
+
+}
+
+
+
+.FormBuilderBodyRow:hover {
+    .FormBuilderBodyRowToolbox {
+        .Toolbox {
+            visibility: visible;
+        }
+    }
+}

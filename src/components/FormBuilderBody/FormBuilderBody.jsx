@@ -1,16 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeFormComponent } from '../../actions/form.js';
+import { useSelector } from 'react-redux';
 import { ComponentPicker } from '../ComponentPicker/ComponentPicker';
-import {browseCatalog, componentCatalog} from '../ComponentCatalog/ComponentCatalog';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import {componentCatalog} from '../ComponentCatalog/ComponentCatalog';
+import {FormBuilderBodyRow} from './FormBuilderBodyRow/FormBuilderBodyRow.jsx';
 
 function FormBuilderBody() {
     const form = useSelector(state => state);
-
-    const dispatch = useDispatch();
 
     return (
         <div className={'FormBuilderBody'} >
@@ -25,18 +21,7 @@ function FormBuilderBody() {
                                 <Col xs={12}>
                                     <Form>
                                         {form.map((component) =>
-                                            <Row key={component.id}>
-                                                <Col xs={.5} style={{textAlign: 'top'}}>
-                                                    <FontAwesomeIcon
-                                                        icon={faTimes}
-                                                        id={`removeComponent-${component.props.id}`}
-                                                        onClick={() => dispatch(removeFormComponent(component.props.id))}
-                                                        />
-                                                </Col>
-                                                <Col>
-                                                    {browseCatalog(component.props)}
-                                                </Col>
-                                            </Row>
+                                            <FormBuilderBodyRow component={component} />
                                         )}
                                     </Form>
                                 </Col>
