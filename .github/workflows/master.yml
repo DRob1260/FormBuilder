@@ -49,10 +49,6 @@ jobs:
     steps: 
       - name: Checkout Repo
         uses: actions/checkout@master
-      - name: Download Storybook Artifact
-        uses: actions/download-artifact@master
-        with:
-          name: docs
       - name: Download Formbuilder Artifact
         uses: actions/download-artifact@master
         with:
